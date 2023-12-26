@@ -86,10 +86,10 @@ import subprocess
 
 def run_python_files():
     file_paths = [
-        './codes/US_All_Govern.py',
-        './codes/US_All_DefenseIndustry.py',
-        './codes/US_All_Local.py',
-        './codes/US_Select.py'
+        './codes/US_All_Govern_office.py',
+        './codes/US_All_DefenseIndustry_office.py',
+        './codes/US_All_Local_office.py',
+        './codes/US_Select_office.py'
     ]
 
     for file_path in file_paths:
