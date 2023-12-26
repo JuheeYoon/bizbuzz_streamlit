@@ -186,9 +186,9 @@ url_local_18 = 'https://www.fox5dc.com/tag/us/md'
 url_local_19 = 'https://foxbaltimore.com/news/local'
 
 # 데이터프레임
-All_articles = pd.read_csv('US_All Articles' + datetime.now().strftime("_%y%m%d") + '.csv')
+All_articles = pd.read_excel('US_All Articles' + datetime.now().strftime("_%y%m%d") + '.xlsx')
 All_articles = All_articles.to_dict(orient='records')
-All_error_list = pd.read_csv('US_ All Error List' + datetime.now().strftime("_%y%m%d") + '.csv')
+All_error_list = pd.read_excel('US_ All Error List' + datetime.now().strftime("_%y%m%d") + '.xlsx')
 All_error_list = All_error_list.to_dict(orient='records')
 Local_articles = []
 today_list = [date_util((datetime.now()- timedelta(days=1)).strftime("%Y-%m-%d")), date_util((datetime.now()).strftime("%Y-%m-%d"))]
@@ -1195,13 +1195,13 @@ articles = pd.DataFrame(All_articles)
 articles = articles.drop_duplicates(subset=['Link'])
 articles = articles.drop_duplicates(subset=['Title'])
 articles.reset_index(drop=True, inplace=True)
-articles.to_csv('US_All Articles' + datetime.now().strftime("_%y%m%d") + '.csv')
+articles.to_excel('US_All Articles' + datetime.now().strftime("_%y%m%d") + '.xlsx')
 
 articles4 = pd.DataFrame(Local_articles)
 articles4 = articles4.drop_duplicates(subset=['Link'])
 articles4 = articles4.drop_duplicates(subset=['Title'])
 articles4.reset_index(drop=True, inplace=True)
-articles4.to_csv('US_Local Articles' + datetime.now().strftime("_%y%m%d") + '.csv')
+articles4.to_excel('US_Local Articles' + datetime.now().strftime("_%y%m%d") + '.xlsx')
 
 error_list = pd.DataFrame(All_error_list)
-error_list.to_csv('US_ All Error List' + datetime.now().strftime("_%y%m%d") + '.csv')
+error_list.to_excel('US_ All Error List' + datetime.now().strftime("_%y%m%d") + '.xlsx')
