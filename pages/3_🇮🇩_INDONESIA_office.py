@@ -90,7 +90,7 @@ import subprocess
 # 함수
 def run_python_files():
     file_paths = [
-        './codes/indonesia_today_final.py'
+        './codes/indonesia_today_final_office.py'
     ]
 
     for file_path in file_paths:
