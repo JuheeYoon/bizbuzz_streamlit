@@ -49,11 +49,11 @@ cols[1].metric(label="⏰ 현재 시간", value=formatted_time)
 import pandas as pd
 from datetime import datetime
 today_str = datetime.now().strftime("%y%m%d")  # 예: '231211'
-US = pd.read_csv(f'US_All Articles_{today_str}.csv')
-VIETNAM_1 = pd.read_csv(f'V_Articles_GOV_{today_str}.csv')
-VIETNAM_2 = pd.read_csv(f'V_Articles_LOCAL_{today_str}.csv')
-INDONESIA_1 = pd.read_csv(f'IN_Articles_GOV_{today_str}.csv')
-INDONESIA_2 = pd.read_csv(f'IN_Articles_LOCAL_{today_str}.csv')
+US = pd.read_excel(f'US_All Articles_{today_str}.xlsx')
+VIETNAM_1 = pd.read_excel(f'V_Articles_GOV_{today_str}.xlsx')
+VIETNAM_2 = pd.read_excel(f'V_Articles_LOCAL_{today_str}.xlsx')
+INDONESIA_1 = pd.read_excel(f'IN_Articles_GOV_{today_str}.xlsx')
+INDONESIA_2 = pd.read_excel(f'IN_Articles_LOCAL_{today_str}.xlsx')
 num_articles = len(US) + len(VIETNAM_1) + len(VIETNAM_2) + len(INDONESIA_1) + len(INDONESIA_2)
 cols[2].metric(label="🗞️ 오늘자 총 기사 개수", value=f"{num_articles}개")
 
@@ -64,7 +64,7 @@ import pandas as pd
 
 def load_data(file_name):
     try:
-        return pd.read_csv(file_name)
+        return pd.read_excel(file_name)
     except FileNotFoundError:
         st.error(f"File '{file_name}' not found.")
         return None
@@ -79,15 +79,15 @@ def main():
     today_str = datetime.now().strftime("%y%m%d")  # 예: '231211'
 
     # 미국 데이터 파일 불러오기
-    us_file = f"US_Final Selected Articles_{today_str}.csv"
+    us_file = f"US_Final Selected Articles_{today_str}.xlsx"
     display_file_with_header(us_file, "US_Final_Selected")
 
     # 베트남 데이터 파일 불러오기
-    v_file = f"V_Final Articles_{today_str}.csv"
+    v_file = f"V_Final Articles_{today_str}.xlsx"
     display_file_with_header(v_file, "V_Final_Selected")
 
     # 인도 데이터 파일 불러오기
-    in_file = f"IN_Final Articles_{today_str}.csv"
+    in_file = f"IN_Final Articles_{today_str}.xlsx"
     display_file_with_header(in_file, "IN_Final_Selected")
 
 if __name__ == "__main__":
